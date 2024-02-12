@@ -17,8 +17,10 @@ if (isset($_GET["entityId"])) {
         http_response_code(400);
         exit("Entity ID is not a number.");
     }
-    $entityId = $_GET["entityId"];
-} 
+    $entityId = "/" . $_GET["entityId"];
+} else {
+    $entityId = "";
+}
 
 
 //Check Release
@@ -39,7 +41,7 @@ include "getToken.php";
 
 //Access API
 $icd_request = curl_init();
-curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity' . (isset($entityId))?'/' . $entityId:'');
+curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity' . $entityId);
 curl_setopt($icd_request, CURLOPT_HTTPHEADER, array(
 			'Authorization: Bearer '.$token,
 			'Accept: application/json',
