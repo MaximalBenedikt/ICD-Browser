@@ -1,5 +1,5 @@
 <?php
-include "config.php"
+include "config.php";
 
 // Get OAUTH2 token
 $AuthTokenRequest = curl_init();
