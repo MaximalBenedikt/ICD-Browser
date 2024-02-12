@@ -45,7 +45,8 @@ curl_setopt($icd_request, CURLOPT_HTTPHEADER, array(
 			'Accept: application/json',
             'API-Version: v2',
             (isset($releaseId)) ? 'releaseId: ' . $releaseId:"",
-			'Accept-Language: ' . $language
+			'Accept-Language: ' . $language,
+            'include:*'
 ));
 $icd_result=curl_exec($icd_request);
 curl_close($icd_request);
