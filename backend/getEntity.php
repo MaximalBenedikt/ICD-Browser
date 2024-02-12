@@ -24,7 +24,7 @@ $entityId = $_GET["entityId"];
 //Check Release
 if (isset($_GET["release"])) {
     $releaseId = $_GET["release"];
-}
+} else 
 
 //Check Language
 if (isset($_GET["language"])) {
@@ -44,6 +44,8 @@ curl_setopt($icd_request, CURLOPT_HTTPHEADER, array(
 			'Authorization: Bearer '.$token,
 			'Accept: application/json',
             'API-Version: v2',
+            'id: ' . $entityId,
+            (isset($releaseId)) ? 'releaseId: ' . $releaseId:"",
 			'Accept-Language: ' . $language
 ));
 $icd_result=curl_exec($icd_request);
