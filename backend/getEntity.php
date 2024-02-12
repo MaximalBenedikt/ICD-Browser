@@ -39,7 +39,7 @@ include "getToken.php";
 
 //Access API
 $icd_request = curl_init();
-curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity' (isset($_GET["entityId"]))?'/' . $entityId:'');
+curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity' . (isset($_GET["entityId"]))?'/' . $entityId:'');
 curl_setopt($icd_request, CURLOPT_HTTPHEADER, array(
 			'Authorization: Bearer '.$token,
 			'Accept: application/json',
