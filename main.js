@@ -71,4 +71,4 @@ class Entity{
     }
 }
 
-new Entity(0,undefined,undefined,fullEntity,()=>{},true);
+new Entity(0,undefined,undefined,true,()=>{},true);
