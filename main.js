@@ -35,10 +35,9 @@ class Entity{
                 submitData.language = language;
             }
         }
-				console.log(submitData)
+			
         $.get(BaseUrl + "getEntity.php", submitData, (rawData)=>{
-        		console.log(rawData)
-            data = JSON.parse(rawData);
+        	let data = JSON.parse(rawData);
             let dataRelease = data.releaseId;
             let dataLang = data[""];
             
