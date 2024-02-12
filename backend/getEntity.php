@@ -24,7 +24,7 @@ $entityId = $_GET["entityId"];
 //Check Release
 if (isset($_GET["release"])) {
     $releaseId = $_GET["release"];
-} else 
+}
 
 //Check Language
 if (isset($_GET["language"])) {
