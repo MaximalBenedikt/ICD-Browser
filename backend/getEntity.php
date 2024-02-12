@@ -37,7 +37,7 @@ if (isset($_GET["language"])) {
 
 //Check Full Entity
 if (isset($_GET["fullEntity"])) {
-    $query .= "&include=ancestor%2Cdecendant%2CdiagnosticCriteria"
+    $query .= "&include=ancestor%2Cdecendant%2CdiagnosticCriteria";
 }
 
 
