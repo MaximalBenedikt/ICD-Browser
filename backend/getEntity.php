@@ -17,8 +17,9 @@ if (!isset($_GET["entityId"])) {
         http_response_code(400);
         exit("Entity ID is not a number.");
     }
+    $entityId = $_GET["entityId"];
 } 
-$entityId = $_GET["entityId"];
+
 
 //Check Release
 if (isset($_GET["release"])) {
