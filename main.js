@@ -1,5 +1,5 @@
 //URL Informations: tabs=Id's&active=id
-const BaseUrl = "icd.maximalbenedikt.de/backend/"
+const BaseUrl = "/backend/"
 var Content = {} 
 /*
 Content = {
