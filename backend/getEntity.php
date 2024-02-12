@@ -12,10 +12,13 @@ Other used Variables:
 
 //Check the provided Informations
 //Check EntityId
-if (!isset($_GET["entityId"]) || !is_numeric($_GET[entityId])) {
+if (!isset($_GET["entityId"])) {
     http_response_code(400);
-    exit("Entity ID is not present or not a Number.");
-}
+    exit("Entity ID is not present.");
+} elseif (!is_numeric($_GET[entityId])) {
+    http_response_code(400);
+    exit("Entity ID is not a number.");
+} 
 $entityId = $_GET["entityId"];
 
 //Check Release
