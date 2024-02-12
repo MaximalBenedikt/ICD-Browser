@@ -33,6 +33,7 @@ if (isset($_GET["language"])) {
     $language = "en";
 }
 
+
 //Get Token for API-Access
 include "getToken.php";
 
