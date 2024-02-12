@@ -58,8 +58,9 @@ class Entity{
                 let newChildLink = newChild.split("/");
                 this.child.push(newChildLink[newChildLink.length - 1]);
                 if (debug_loadAll) {
-                    await Sleep(1000);
-                    new Entity(newChildLink[newChildLink.length - 1], undefined, undefined, ()=>{}, debug_loadAll);
+                    setTimeout(function() {
+                        new Entity(newChildLink[newChildLink.length - 1], undefined, undefined, ()=>{}, debug_loadAll);
+                        }, 500);
                 }
             });
 
