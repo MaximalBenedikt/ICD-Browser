@@ -17,9 +17,9 @@ if (isset($_GET["entityId"])) {
         http_response_code(400);
         exit("Entity ID is not a number.");
     }
-    $query = "/" . $_GET["entityId"];
+    $query = "/" . $_GET["entityId"] . "?";
 } else {
-    $query = "";
+    $query = "?";
 }
 
 
