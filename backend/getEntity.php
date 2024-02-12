@@ -27,7 +27,7 @@ if (isset($_GET["release"])) {
 if (isset($_GET["language"])) {
     $language = $_GET["language"];
 } else {
-    $language = "en"
+    $language = "en";
 }
 
 //Get Token for API-Access
