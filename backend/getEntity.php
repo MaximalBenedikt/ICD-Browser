@@ -15,7 +15,7 @@ Other used Variables:
 if (!isset($_GET["entityId"])) {
     http_response_code(400);
     exit("Entity ID is not present.");
-} elseif (!is_numeric($_GET[entityId])) {
+} elseif (!is_numeric($_GET["entityId"])) {
     http_response_code(400);
     exit("Entity ID is not a number.");
 } 
