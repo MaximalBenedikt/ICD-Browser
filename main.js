@@ -19,7 +19,7 @@ class Entity{
     //Link
     link={} //release -> lang -> string
     
-    constructor (id, release, language, cb=()=>{}, debug_loadAll = false) {
+    constructor (id, release, language, fullEntity, cb=()=>{}, debug_loadAll = false) {
         this.id = id;
         console.log(id)
         let submitData = {};
@@ -59,7 +59,7 @@ class Entity{
                 this.child.push(newChildLink[newChildLink.length - 1]);
                 if (debug_loadAll) {
                     setTimeout(function() {
-                        new Entity(newChildLink[newChildLink.length - 1], undefined, undefined, ()=>{}, debug_loadAll);
+                        new Entity(newChildLink[newChildLink.length - 1], undefined, undefined, fullEntity, ()=>{}, debug_loadAll);
                         }, 500);
                 }
             });
@@ -71,4 +71,4 @@ class Entity{
     }
 }
 
-new Entity(0,undefined,undefined,()=>{},true);
+new Entity(0,undefined,undefined,fullEntity,()=>{},true);
