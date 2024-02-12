@@ -1,3 +1,4 @@
+const BaseUrl="backend/"
 /** 
  * Represents one Entity
  * @class
@@ -16,7 +17,7 @@ class Entity{
     //Link
     link={} //release -> lang -> string
     
-    constructor (id, release, language, cb=()=>{}, debug_loadAll = false) {
+    constructor (id, release, language, cb=()=>{}, debug_loadAll = true) {
         this.id = id;
         console.log(id)
         let submitData = {};
@@ -36,85 +37,21 @@ class Entity{
             }
         }
 			
+       console.log(BaseUrl + "getEntity.php");
         $.get(BaseUrl + "getEntity.php", submitData, (rawData)=>{
+        console.log(rawData)
         	let data = JSON.parse(rawData);
             let dataRelease = data.releaseId;
             let dataLang = data[""];
             
             console.log(rawData);
 
-            console.log(typeof this.link[dataRelease])
+            if (typeof this.link[dataRelease] != undefined) {}
+        }).fail((data)=>{
+        	  // alert("Error");
+            console.log(data.getResponseHeader());
         });
     }
 }
 
-
-
-//URL Informations: tabs=Id's&active=id
-const BaseUrl = "https://icd.maximalbenedikt.de/backend/"
-var Content = {} 
-
-function LoadEntity(id, parentId, fullEntity=false, release, language) {
-    if (Content[id]==undefined) {
-        Content[id] = {
-            "ID": id,
-            "Parent": [parentId],
-            "Child": [],
-            "Data": {}
-        }
-    }
-
-    getEntity(id, (data)=>{
-        //ID aus Data ziehen
-        let idRaw = rawParent.split("/");
-        let entityId = idRaw[idRaw.length - 1];
-
-        //Parents
-        data["parent"].forEach(rawParent => {
-            let idRaw = rawParent.split("/");
-            let id = idRaw[idRaw.length - 1];
-            if (!Content[entityId]["Parent"].includes(id)) 
-                Content[entityId]["Parent"].push(id);
-        });
-
-        //Child
-        data["child"].forEach(rawChild => {
-            let idRaw = rawChild.split("/");
-            let id = idRaw[idRaw.length - 1];
-            if (!Content[entityId]["Child"].includes(id)) 
-                Content[entityId]["Child"].push(id);
-        });
-
-        //Data
-
-    }, fullEntity, release, language)
-}
-
-function getEntity(id, callback, fullEntity=false, release, language) {
-    let submitData = {};
-    // ID checken
-    if (id == "" || isNaN(id)) {
-        alert("Die Anfrage an den Server war fehlerhaft. Es muss eine ID angefordert werden.");
-        return;
-    } 
-    //ID okay
-    submitData["entityId"] = id;
-    if (fullEntity) {
-        submitData["fullEntity"] = true;
-    } 
-
-    if (release!=undefined) {
-        submitData["release"] = release;
-    }
-
-    if (language!=undefined) {
-        submitData["language"] = language;
-    }
-
-    $.get(BaseUrl + "getEntity.php", submitData, (data)=>{
-        alert(data);
-        callback(JSON.parse(data));
-    });
-}
-
-new Entity(0);
+new Entity(0)
