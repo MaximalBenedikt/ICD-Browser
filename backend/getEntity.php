@@ -43,7 +43,7 @@ curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity');
 curl_setopt($icd_request, CURLOPT_HTTPHEADER, array(
 			'Authorization: Bearer '.$token,
 			'Accept: application/json',
-            'API-Version: v2'
+            'API-Version: v2',
 			'Accept-Language: ' . $language
 ));
 $icd_result=curl_exec($icd_request);
