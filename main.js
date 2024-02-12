@@ -52,7 +52,7 @@ class Entity{
 
 
 //URL Informations: tabs=Id's&active=id
-const BaseUrl = "icd.maximalbenedikt.de/backend/"
+const BaseUrl = "https://icd.maximalbenedikt.de/backend/"
 var Content = {} 
 
 function LoadEntity(id, parentId, fullEntity=false, release, language) {
