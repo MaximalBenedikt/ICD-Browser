@@ -17,15 +17,15 @@ if (isset($_GET["entityId"])) {
         http_response_code(400);
         exit("Entity ID is not a number.");
     }
-    $entityId = "/" . $_GET["entityId"];
+    $query = "/" . $_GET["entityId"];
 } else {
-    $entityId = "";
+    $query = "";
 }
 
 
 //Check Release
 if (isset($_GET["release"])) {
-    $releaseId = $_GET["release"];
+    $query .= "&releaseId=" . $_GET["release"];
 }
 
 //Check Language
@@ -35,20 +35,25 @@ if (isset($_GET["language"])) {
     $language = "en";
 }
 
+//Check Full Entity
+if (isset($_GET["fullEntity"])) {
+    $query .= "&include=ancestor%2Cdecendant%2CdiagnosticCriteria"
+}
+
 
 //Get Token for API-Access
 include "getToken.php";
 
 //Access API
 $icd_request = curl_init();
-curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity' . $entityId);
+curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity' . $query);
 curl_setopt($icd_request, CURLOPT_HTTPHEADER, array(
 			'Authorization: Bearer '.$token,
 			'Accept: application/json',
             'API-Version: v2',
             (isset($releaseId)) ? 'releaseId: ' . $releaseId:"",
 			'Accept-Language: ' . $language,
-            'include:ancestor, decendant, diagnosticCriteria'
+            
 ));
 $icd_result=curl_exec($icd_request);
 curl_close($icd_request);
