@@ -13,11 +13,10 @@ Other used Variables:
 //Check the provided Informations
 //Check EntityId
 if (!isset($_GET["entityId"])) {
-    http_response_code(400);
-    exit("Entity ID is not present.");
-} elseif (!is_numeric($_GET["entityId"])) {
-    http_response_code(400);
-    exit("Entity ID is not a number.");
+    if (!is_numeric($_GET["entityId"])) {
+        http_response_code(400);
+        exit("Entity ID is not a number.");
+    }
 } 
 $entityId = $_GET["entityId"];
 
@@ -39,7 +38,7 @@ include "getToken.php";
 
 //Access API
 $icd_request = curl_init();
-curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity/' . $entityId);
+curl_setopt($icd_request, CURLOPT_URL, 'https://id.who.int/icd/entity' (isset($_GET["entityId"]))?'/' . $entityId:'');
 curl_setopt($icd_request, CURLOPT_HTTPHEADER, array(
 			'Authorization: Bearer '.$token,
 			'Accept: application/json',
