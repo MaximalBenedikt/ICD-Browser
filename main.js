@@ -1,67 +1,94 @@
-//URL Informations: tabs=Id's&active=id
-const BaseUrl = "/backend/"
-var Content = {} 
-/*
-Content = {
-    EntityID: {
-        ID: EntityID,
-        Parent: [EntityID],
-        Children: [EntityID],
-        Data: {
-            language: {
-                name:
+/** 
+ * Represents one Entity
+ * @class
+ * 
+ */
+class Entity{
+    //Ident
+    id=0; // EntityID
+    //Relations
+    parent=[]; // EntityID
+    child=[]; // EntityID
+    //Names
+    names={} // release -> lang -> string
+    //Data
+    data={} // release -> lang -> array with informations
+    //Link
+    link={} //release -> lang -> string
+    
+    constructor (id, release, language, cb=()=>{}, debug_loadAll = false) {
+        this.id = id;
+        console.log(id)
+        let submitData = {};
+        
+        if(this.id != 0) {
+            submitData.entityId = id;
+            if (fullEntity) {
+                submitData.fullEntity = true;
+            } 
 
-                Data contained here :D
+            if (release!=undefined) {
+                submitData.release = release;
+            }
+
+            if (language!=undefined) {
+                submitData.language = language;
             }
         }
+				console.log(submitData)
+        $.get(BaseUrl + "getEntity.php", submitData, (rawData)=>{
+        		console.log(rawData)
+            data = JSON.parse(rawData);
+            let dataRelease = data.releaseId;
+            let dataLang = data[""];
+            
+            console.log(rawData);
+
+            console.log(typeof this.link[dataRelease])
+        });
     }
 }
-*/
 
-function init() {
-    $.get(BaseUrl + "getEntity.php", (data)=>{
-        let baseRawData = JSON.parse(data);
-        let baseLanguage = baseRawData["title"]["@language"];
-        let baseRelease = baseRawData["releaseId"];
-        let baseEntity = {
-            "ID": 0,
-            "Parent": [],
-            "Children": [],
-            "Data": {
-                baseLanguage: {
-                    baseRelease: {
-                        "name": baseRawData["title"]["@value"],
-                    }
-                }
-            }
-        };
 
-        baseRawData["child"].forEach(child => {
-            let idRaw = child.split("/")
-            let id = idRaw[idRaw.length - 1]
-            baseEntity["Children"].push(id);
-            LoadEntity(id, 0);
-        });
 
-        Content[0] = baseEntity;
-    });
-}
+//URL Informations: tabs=Id's&active=id
+const BaseUrl = "icd.maximalbenedikt.de/backend/"
+var Content = {} 
 
 function LoadEntity(id, parentId, fullEntity=false, release, language) {
     if (Content[id]==undefined) {
         Content[id] = {
             "ID": id,
             "Parent": [parentId],
-            "Children": [],
+            "Child": [],
             "Data": {}
         }
     }
 
+    getEntity(id, (data)=>{
+        //ID aus Data ziehen
+        let idRaw = rawParent.split("/");
+        let entityId = idRaw[idRaw.length - 1];
 
+        //Parents
+        data["parent"].forEach(rawParent => {
+            let idRaw = rawParent.split("/");
+            let id = idRaw[idRaw.length - 1];
+            if (!Content[entityId]["Parent"].includes(id)) 
+                Content[entityId]["Parent"].push(id);
+        });
 
-    getEntity(id, ()=>{
+        //Child
+        data["child"].forEach(rawChild => {
+            let idRaw = rawChild.split("/");
+            let id = idRaw[idRaw.length - 1];
+            if (!Content[entityId]["Child"].includes(id)) 
+                Content[entityId]["Child"].push(id);
+        });
 
-    }, fullEntity, )
+        //Data
+
+    }, fullEntity, release, language)
 }
 
 function getEntity(id, callback, fullEntity=false, release, language) {
@@ -76,8 +103,14 @@ function getEntity(id, callback, fullEntity=false, release, language) {
     if (fullEntity) {
         submitData["fullEntity"] = true;
     } 
-    // Release (vorläufig Undefined)
-    // Language (vorläufig Undefined)
+
+    if (release!=undefined) {
+        submitData["release"] = release;
+    }
+
+    if (language!=undefined) {
+        submitData["language"] = language;
+    }
 
     $.get(BaseUrl + "getEntity.php", submitData, (data)=>{
         alert(data);
@@ -85,16 +118,4 @@ function getEntity(id, callback, fullEntity=false, release, language) {
     });
 }
 
-function getTreeview(parentId) {
-
-}
-
-function ExpandTreeview(parentId) {
-
-}
-
-function LoadTreeview(parentId) {
-    $.get()
-}
-
-init()
+new Entity(0);
