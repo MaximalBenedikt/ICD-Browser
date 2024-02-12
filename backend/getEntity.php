@@ -12,7 +12,7 @@ Other used Variables:
 
 //Check the provided Informations
 //Check EntityId
-if (!isset($_GET["entityId"])) {
+if (isset($_GET["entityId"])) {
     if (!is_numeric($_GET["entityId"])) {
         http_response_code(400);
         exit("Entity ID is not a number.");
