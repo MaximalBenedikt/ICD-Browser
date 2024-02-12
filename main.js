@@ -70,4 +70,4 @@ class Entity{
     }
 }
 
-new Entity(0)
+new Entity(0,undefined,undefined,()=>{},true);
