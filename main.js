@@ -14,21 +14,17 @@ class Entity{
     child=[]; // EntityID
     //Names
     names={} // release -> lang -> string
-    //Data
-    data={} // release -> lang -> array with informations
     //Link
     link={} //release -> lang -> string
     
-    constructor (id, release, language, fullEntity, cb=()=>{}, debug_loadAll = false) {
+    constructor (id, release, language, cb=()=>{}, debug_loadAll = false) {
+        if (Content[id]!=undefined) 
         this.id = id;
         console.log(id)
         let submitData = {};
         
         if(this.id != 0) {
             submitData.entityId = id;
-            if (fullEntity) {
-                submitData.fullEntity = true;
-            } 
 
             if (release!=undefined) {
                 submitData.release = release;
@@ -60,7 +56,7 @@ class Entity{
                 if (debug_loadAll) {
                     setTimeout(function() {
                         new Entity(newChildLink[newChildLink.length - 1], undefined, undefined, fullEntity, ()=>{}, debug_loadAll);
-                        }, 500);
+                        }, 1500);
                 }
             });
 
@@ -71,4 +67,4 @@ class Entity{
     }
 }
 
-new Entity(0,undefined,undefined,true,()=>{},true);
+new Entity(0,undefined,undefined,false,()=>{},true);
