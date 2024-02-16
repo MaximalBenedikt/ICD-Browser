@@ -16,7 +16,7 @@ class Entity {
     public $CodingNote = null;
     public $BlockId = null;
     public $ClassKind = null;
-    public $LastRefresh = date('Y-m-d H:i:s',strtotime("01/01/0001 00:00:01"));
+    public $LastRefresh = "0001-01-01 00:00:01";
     public $BrowserUrl = null;
     public $RelatedEntitiesInMaternalChapter = null;
     public $RelatedEntitiesInPerinatalChapter = null;
