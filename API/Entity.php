@@ -1,37 +1,39 @@
 <?php
 
 class Entity {
-    public $UEID = null; 
-    public $ICDID = null;
-    public $Linearisation = "";
-    public $Release = "";
-    public $Language = "";
-    public $Title = null;
-    public $Definition = null;
-    public $LongDefinition = null;
-    public $FullySpecifiedName = null;
-    public $DiagnosticCriteria = null;
-    public $Code = null;
-    public $CodeRange = null;
-    public $CodingNote = null;
-    public $BlockId = null;
-    public $ClassKind = null;
-    public $LastRefresh = "0001-01-01 00:00:01";
-    public $BrowserUrl = null;
-    public $RelatedEntitiesInMaternalChapter = null;
-    public $RelatedEntitiesInPerinatalChapter = null;
-    public $Children = [];
-    public $Parent = [];
-    public $Ancestors = [];
-    public $Descendant = [];
-    public $Relations = [];
-    public $Synonyms = [];
-    public $NarrowerTerms = [];
-    public $Inclusions = [];
-    public $Exclusions = [];
-    public $FoundationChildElsewhere = [];
-    public $indexTerm = [];
-    public $PostcoordinationScale = [];
+    public $data = {
+        UEID = null,
+        ICDID = null,
+        Linearisation = "",
+        Release = "",
+        Language = "",
+        Title = null,
+        Definition = null,
+        LongDefinition = null,
+        FullySpecifiedName = null,
+        DiagnosticCriteria = null,
+        Code = null,
+        CodeRange = null,
+        CodingNote = null,
+        BlockId = null,
+        ClassKind = null,
+        LastRefresh = "0001-01-01 00:00:01",
+        BrowserUrl = null,
+        RelatedEntitiesInMaternalChapter = null,
+        RelatedEntitiesInPerinatalChapter = null,
+        Children = [],
+        Parents = [],
+        Ancestors = [],
+        Descendant = [],
+        Relations = [],
+        Synonyms = [],
+        NarrowerTerms = [],
+        Inclusions = [],
+        Exclusions = [],
+        FoundationChildElsewhere = [],
+        indexTerm = [],
+        PostcoordinationScale = []
+    }
 
     public function __construct() {
         
@@ -39,8 +41,8 @@ class Entity {
 }
 
 $testEntity = new Entity();
-echo $testEntity;
-var_export($testEntity);
+echo $testEntity->data;
+var_export($testEntity->data);
 
 /**
  * DB Entries for Entity:
@@ -90,7 +92,7 @@ var_export($testEntity);
  *  UEID - Entity
  * 
  * Variable Names
- *  $ueid = UEID (Unique Entity ID; This refers to ICD-ID, Release, Language and (if there are multiple Versions in one Release) which Version)
+ *  $ueid = UEID (Unique Entity ID, This refers to ICD-ID, Release, Language and (if there are multiple Versions in one Release) which Version)
  *  $icdid = ICD ID (The ID under which the Specific Disease or Disorder is handled in the ICD Foundation/Linearization)
  *  $release = Releases of the ICD (2024-01, 2023-01, ...)
  * 
