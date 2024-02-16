@@ -41,7 +41,7 @@ class Entity
             "indexTerm" => [],
             "PostcoordinationScale" => []
         ]
-    ]
+    ];
 
     private $status = {
         "isLoaded" = {
@@ -49,12 +49,12 @@ class Entity
             "simple" = false,
             "extendet" = false
         }
-    }
+    };
 
     public function __construct() {
         require_once "WHO.php";
 
-    }
+    };
 
     public function LoadByICDID(
         $ICDID, 
@@ -68,7 +68,7 @@ class Entity
         
         
         return $this->data;
-    }
+    };
 }
 
 $testEntity = new Entity();
