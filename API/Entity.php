@@ -1,7 +1,7 @@
 <?php
 
 class Entity {
-    $data = {
+    public $data = {
         "UEID" = null,
         "ICDID" = null,
         "Linearisation" = "",
