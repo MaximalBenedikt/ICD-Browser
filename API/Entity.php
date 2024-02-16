@@ -43,13 +43,13 @@ class Entity
         ]
     ];
 
-    private $status = {
-        "isLoaded" = {
-            "basic" = false,
-            "simple" = false,
-            "extendet" = false
-        }
-    };
+    private $status = [
+        "isLoaded" => [
+            "basic" => false,
+            "simple" => false,
+            "extendet" => false
+        ]
+    ];
 
     public function __construct() {
         require_once "WHO.php";
@@ -58,12 +58,12 @@ class Entity
 
     public function LoadByICDID(
         $ICDID, 
-        $Options = {
-            "Linearisation" = "Foundation", //If Not Provided, Foundation
-            "Language" = "en",              //If not Provided, English
-            "Release" = "",                 //If not Provided, Latest
-            "Scope" = 1                     //If not Provided, 3 | Scope: 1 = Only Basic Data, 2 = Basic + Simple, 3 = Basic + Simple + Advanced 
-        }) {
+        $Options = [
+            "Linearisation" => "Foundation", //If Not Provided, Foundation
+            "Language" => "en",              //If not Provided, English
+            "Release" => "",                 //If not Provided, Latest
+            "Scope" => 1                     //If not Provided, 3 | Scope: 1 = Only Basic Data, 2 = Basic + Simple, 3 = Basic + Simple + Advanced 
+        ]) {
 
         
         
