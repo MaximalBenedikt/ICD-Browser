@@ -2,7 +2,8 @@
 
 require "Database.php";
 
-class Entity {
+class Entity 
+{
     public $data = {
         "Basic" = {
             "UEID" = null,
