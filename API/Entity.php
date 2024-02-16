@@ -4,44 +4,44 @@ require "Database.php";
 
 class Entity 
 {
-    public $data = {
-        "Basic" = {
-            "UEID" = null,
-            "ICDID" = null,
-            "Linearisation" = "",
-            "Release" = "",
-            "Language" = "",
-            "Title" = null,
-            "LastRefresh" = "0001-01-01 00:00:01",
-            "BrowserUrl" = null,
-            "ClassKind" = null,
-        },
-        "Simple" = {
-            "Definition" = null,
-            "LongDefinition" = null,
-            "FullySpecifiedName" = null,
-            "DiagnosticCriteria" = null,
-            "Code" = null,
-            "CodeRange" = null,
-            "CodingNote" = null,
-            "BlockId" = null,
-            "RelatedEntitiesInMaternalChapter" = null,
-            "RelatedEntitiesInPerinatalChapter" = null,
-        },
-        "Advanced" = {
-            "Children" = [],
-            "Parents" = [],
-            "Ancestors" = [],
-            "Descendant" = [],
-            "Inclusions" = [],
-            "Exclusions" = [],
-            "Synonyms" = [],
-            "NarrowerTerms" = [],
-            "FoundationChildElsewhere" = [],
-            "indexTerm" = [],
-            "PostcoordinationScale" = []
-        } 
-    }
+    public $data = [
+        "Basic" => [
+            "UEID" => null,
+            "ICDID" => null,
+            "Linearisation" => "",
+            "Release" => "",
+            "Language" => "",
+            "Title" => null,
+            "LastRefresh" => "0001-01-01 00:00:01",
+            "BrowserUrl" => null,
+            "ClassKind" => null,
+        ],
+        "Simple" => [
+            "Definition" => null,
+            "LongDefinition" => null,
+            "FullySpecifiedName" => null,
+            "DiagnosticCriteria" => null,
+            "Code" => null,
+            "CodeRange" => null,
+            "CodingNote" => null,
+            "BlockId" => null,
+            "RelatedEntitiesInMaternalChapter" => null,
+            "RelatedEntitiesInPerinatalChapter" => null
+        ],
+        "Advanced" => [
+            "Children" => [],
+            "Parents" => [],
+            "Ancestors" => [],
+            "Descendant" => [],
+            "Inclusions" => [],
+            "Exclusions" => [],
+            "Synonyms" => [],
+            "NarrowerTerms" => [],
+            "FoundationChildElsewhere" => [],
+            "indexTerm" => [],
+            "PostcoordinationScale" => []
+        ]
+    ]
 
     private $status = {
         "isLoaded" = {
