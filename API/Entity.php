@@ -53,7 +53,7 @@ class Entity
 
     public function __construct() {
         
-    };
+    }
 
     public function LoadByICDID(
         $ICDID, 
@@ -67,7 +67,7 @@ class Entity
         
         
         return $this->data;
-    };
+    }
 }
 
 $testEntity = new Entity();
