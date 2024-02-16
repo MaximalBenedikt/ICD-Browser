@@ -52,8 +52,7 @@ class Entity
     ];
 
     public function __construct() {
-        require_once "WHO.php";
-
+        
     };
 
     public function LoadByICDID(
