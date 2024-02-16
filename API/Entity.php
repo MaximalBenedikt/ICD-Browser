@@ -2,7 +2,7 @@
 
 class Entity {
     public $UEID = null; 
-    public $ICD-ID = null;
+    public $ICDID = null;
     public $Linearisation = "";
     public $Release = "";
     public $Language = "";
