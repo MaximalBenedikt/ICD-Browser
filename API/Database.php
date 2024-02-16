@@ -9,11 +9,11 @@
 
     // Entity Versions
     function GetEntityVersionsByUEID ($ueid) {}
-    function GetEntityVersionsByICD  ($icd) {}
+    function GetEntityVersionsByICD  ($icd, $release, $language) {}
     
     // Entity Releases
     function GetEntityReleasesByUEID ($ueid) {}
-    function GetEntityReleasesByICD  ($icd) {}
+    function GetEntityReleasesByICD  ($icd, $release, $language) {}
 
     // Entities
     function GetEntityByICD ($icdid, $release) {

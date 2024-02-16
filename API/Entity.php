@@ -1,42 +1,72 @@
 <?php
 
+require "Database.php";
+
 class Entity {
     public $data = {
-        "UEID" = null,
-        "ICDID" = null,
-        "Linearisation" = "",
-        "Release" = "",
-        "Language" = "",
-        "Title" = null,
-        "Definition" = null,
-        "LongDefinition" = null,
-        "FullySpecifiedName" = null,
-        "DiagnosticCriteria" = null,
-        "Code" = null,
-        "CodeRange" = null,
-        "CodingNote" = null,
-        "BlockId" = null,
-        "ClassKind" = null,
-        "LastRefresh" = "0001-01-01 00:00:01",
-        "BrowserUrl" = null,
-        "RelatedEntitiesInMaternalChapter" = null,
-        "RelatedEntitiesInPerinatalChapter" = null,
-        "Children" = [],
-        "Parents" = [],
-        "Ancestors" = [],
-        "Descendant" = [],
-        "Relations" = [],
-        "Synonyms" = [],
-        "NarrowerTerms" = [],
-        "Inclusions" = [],
-        "Exclusions" = [],
-        "FoundationChildElsewhere" = [],
-        "indexTerm" = [],
-        "PostcoordinationScale" = []
+        "Basic" = {
+            "UEID" = null,
+            "ICDID" = null,
+            "Linearisation" = "",
+            "Release" = "",
+            "Language" = "",
+            "Title" = null,
+            "LastRefresh" = "0001-01-01 00:00:01",
+            "BrowserUrl" = null,
+            "ClassKind" = null,
+        },
+        "Simple" = {
+            "Definition" = null,
+            "LongDefinition" = null,
+            "FullySpecifiedName" = null,
+            "DiagnosticCriteria" = null,
+            "Code" = null,
+            "CodeRange" = null,
+            "CodingNote" = null,
+            "BlockId" = null,
+            "RelatedEntitiesInMaternalChapter" = null,
+            "RelatedEntitiesInPerinatalChapter" = null,
+        },
+        "Advanced" = {
+            "Children" = [],
+            "Parents" = [],
+            "Ancestors" = [],
+            "Descendant" = [],
+            "Inclusions" = [],
+            "Exclusions" = [],
+            "Synonyms" = [],
+            "NarrowerTerms" = [],
+            "FoundationChildElsewhere" = [],
+            "indexTerm" = [],
+            "PostcoordinationScale" = []
+        } 
+    }
+
+    private $status = {
+        "isLoaded" = {
+            "basic" = false,
+            "simple" = false,
+            "extendet" = false
+        }
     }
 
     public function __construct() {
+        require_once "WHO.php";
+
+    }
+
+    public function LoadByICDID(
+        $ICDID, 
+        $Options = {
+            "Linearisation" = "Foundation", //If Not Provided, Foundation
+            "Language" = "en",              //If not Provided, English
+            "Release" = "",                 //If not Provided, Latest
+            "Scope" = 1                     //If not Provided, 3 | Scope: 1 = Only Basic Data, 2 = Basic + Simple, 3 = Basic + Simple + Advanced 
+        }) {
+
         
+        
+        return $this->data;
     }
 }
 
@@ -97,6 +127,3 @@ var_export($testEntity->data);
  *  $release = Releases of the ICD (2024-01, 2023-01, ...)
  * 
  */
-
-
-// Alter Teil
