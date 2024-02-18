@@ -1,0 +1,100 @@
+// (All other) /icd/release/11/{releaseId}/{linearizationname}/{id}
+// (other and unspecified) /icd/release/11/{releaseId}/{linearizationname}/{id}/{residual} 
+{
+  "@context": "string",
+  "@id": "string",
+  "title": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "definition": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "longDefinition": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "fullySpecifiedName": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "diagnosticCriteria": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "source": "string",
+  "code": "string",
+  "codingNote": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "blockId": "string",
+  "codeRange": "string",
+  "classKind": "string",
+  "child": [
+    "string"
+  ],
+  "parent": [
+    "string"
+  ],
+  "ancestor": [
+    "string"
+  ],
+  "descendant": [
+    "string"
+  ],
+  "foundationChildElsewhere": [
+    {
+      "label": {
+        "@language": "string",
+        "@value": "string"
+      },
+      "foundationReference": "string",
+      "linearizationReference": "string"
+    }
+  ],
+  "indexTerm": [
+    {
+      "label": {
+        "@language": "string",
+        "@value": "string"
+      },
+      "foundationReference": "string",
+      "linearizationReference": "string"
+    }
+  ],
+  "inclusion": [
+    {
+      "label": {
+        "@language": "string",
+        "@value": "string"
+      },
+      "foundationReference": "string",
+      "linearizationReference": "string"
+    }
+  ],
+  "exclusion": [
+    {
+      "label": {
+        "@language": "string",
+        "@value": "string"
+      },
+      "foundationReference": "string",
+      "linearizationReference": "string"
+    }
+  ],
+  "relatedEntitiesInMaternalChapter": "string",
+  "relatedEntitiesInPerinatalChapter": "string",
+  "postcoordinationScale": [
+    {
+      "axisName": "string",
+      "requiredPostcoordination": "string",
+      "allowMultipleValues": "string",
+      "scaleEntity": [
+        "string"
+      ]
+    }
+  ],
+  "browserUrl": "string"
+}

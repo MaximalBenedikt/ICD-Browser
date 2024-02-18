@@ -1,0 +1,75 @@
+{
+  "title": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "definition": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "longDefinition": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "fullySpecifiedName": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "diagnosticCriteria": {
+    "@language": "string",
+    "@value": "string"
+  },
+  "child": [
+    "string"
+  ],
+  "parent": [
+    "string"
+  ],
+  "ancestor": [
+    "string"
+  ],
+  "descendant": [
+    "string"
+  ],
+  "synonym": [
+    {
+      "label": {
+        "@language": "string",
+        "@value": "string"
+      },
+      "foundationReference": "string",
+      "linearizationReference": "string"
+    }
+  ],
+  "narrowerTerm": [
+    {
+      "label": {
+        "@language": "string",
+        "@value": "string"
+      },
+      "foundationReference": "string",
+      "linearizationReference": "string"
+    }
+  ],
+  "inclusion": [
+    {
+      "label": {
+        "@language": "string",
+        "@value": "string"
+      },
+      "foundationReference": "string",
+      "linearizationReference": "string"
+    }
+  ],
+  "exclusion": [
+    {
+      "label": {
+        "@language": "string",
+        "@value": "string"
+      },
+      "foundationReference": "string",
+      "linearizationReference": "string"
+    }
+  ],
+  "browserUrl": "string"
+}
