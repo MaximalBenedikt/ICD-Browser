@@ -2,9 +2,28 @@
 
 // require "Database.php";
 
+if () {
+    # code...
+}
+
+
+
+
+
 class Entity 
 {
     public $data = [
+        "Basic" => [
+            "ICDID" => null,
+            "Language" => "en"
+        ],
+        "Releases" => [
+            "Default" => [
+                "Language" => [
+
+                ]
+            ]
+        ]
         "Basic" => [
             "UEID" => null,
             "ICDID" => null,
